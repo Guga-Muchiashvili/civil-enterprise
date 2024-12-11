@@ -15,20 +15,20 @@ const NavBar = () => {
       <h1 className={`${roboto.className} text-2xl`}>SAXAZAVI</h1>
       <div className=" hidden md:flex md:gap-5">
         <h3 className="cursor-pointer hover:scale-105 transition-all duration-150">
-          Home
+          მთავარი
         </h3>
         <h3 className="cursor-pointer hover:scale-105 transition-all duration-150">
-          Product
+          პროდუქთი
         </h3>
         <h3 className="cursor-pointer hover:scale-105 transition-all duration-150">
-          About Us
+          ჩვენს შესახებ
         </h3>
         <h3 className="cursor-pointer hover:scale-105 transition-all duration-150">
-          Contact
+          კონტაქტი
         </h3>
       </div>
       <RiMenu5Line className="block md:hidden text-3xl" />
-      <IoSearch className="hidden md:block" />
+      <IoSearch className="hidden md:block cursor-pointer" />
     </div>
   );
 };

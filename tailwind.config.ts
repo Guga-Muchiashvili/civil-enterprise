@@ -13,6 +13,12 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
+        bebas: ["'Bebas Neue'", "cursive"],
+        kanit: ["'Kanit'", "sans-serif"],
+        kumbh: ["'Kumbh Sans'", "sans-serif"],
+        nunito: ["'Nunito'", "sans-serif"],
+        poppins: ["'Poppins'", "sans-serif"],
+        roboto: ["'Roboto'", "sans-serif"],
         sans: ["Roboto", "Arial", "sans-serif"],
         serif: ["Merriweather", "serif"],
       },
