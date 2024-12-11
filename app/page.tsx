@@ -1,101 +1,59 @@
+"use client";
+import NavBar from "@/components/NavBar";
+import background from "../assets/background.jpg";
+import { Roboto } from "next/font/google";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import logo from "../assets/model(ench).png";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["700"],
+});
 
 export default function Home() {
+  const AnimatedImage = motion(Image);
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="w-full h-[500vh]">
+      <NavBar />
+      <div className="relative w-full h-[92vh]">
+        <div
+          className="absolute top-0 left-0 w-full h-full bg-fixed bg-cover bg-center"
+          style={{ backgroundImage: `url(${background.src})` }}
+        >
+          <div className="z-20 absolute top-1/2 md:right-10 w-full md:w-1/2  translate-y-[-50%] flex items-center flex-col gap-8">
+            <motion.h1
+              initial={{ opacity: 0, translateX: "20px" }}
+              animate={{ opacity: 1, translateX: "-0px" }}
+              transition={{ duration: 2 }}
+              className={`${roboto.className} text-center text-4xl md:text-7xl text-white`}
+            >
+              Experience New World of Techologies
+            </motion.h1>
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 2, delay: 1 }}
+              className="bg-blue-500 hover:scale-110 duration-500 text-white w-36 md:w-48 h-12 rounded-2xl"
+            >
+              Order now
+            </motion.button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-35 flex items-center justify-center"></div>
+      </div>
+      <div className="w-full flex flex-col justify-center h-screen">
+        <AnimatedImage
+          initial={{ translateX: "-700px" }}
+          animate={{ translateX: "0px" }}
+          transition={{ duration: 1.4 }}
+          src={logo.src}
+          alt="logo"
+          width={400}
+          height={500}
+          className="w-[760px] h-full"
+        />
+      </div>
     </div>
   );
 }
